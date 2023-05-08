@@ -10,15 +10,11 @@ import java.io.PrintWriter;
 @WebServlet(name="HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
 
-    private int hitCount;
-
-    public void  init(FilterConfig config) throws ServletException {
-        // Reset hit counter.
-        hitCount = 0;
-    }
+    private int hitCount = 0;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String name = req.getParameter("name");
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
         out.println("<h1> Hello, World! </h1>");
@@ -29,13 +25,6 @@ public class HelloWorldServlet extends HttpServlet {
         hitCount++;
 
         out.println("<h3> Current Page Count: " + hitCount);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String name = req.getParameter("name");
-        res.setContentType("text/html");
-        PrintWriter out = res.getWriter();
 
         // Input If/Else
         if (name != null) {
@@ -43,7 +32,6 @@ public class HelloWorldServlet extends HttpServlet {
         } else {
             out.println("<h3>Hey, what's your name?</3>");
         }
-
     }
 
 }
