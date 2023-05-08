@@ -1,3 +1,5 @@
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,11 +10,41 @@ import java.io.PrintWriter;
 @WebServlet(name="HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
 
+    private int hitCount;
+
+    public void  init(FilterConfig config) throws ServletException {
+        // Reset hit counter.
+        hitCount = 0;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
         out.println("<h1> Hello, World! </h1>");
+
+        // Page Counter
+        String title = "Total Number of Hits";
+
+        hitCount++;
+
+        out.println("<h3> Current Page Count: " + hitCount);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String name = req.getParameter("name");
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+
+        // Input If/Else
+        if (name != null) {
+            out.println("<h3> Hello, " + name + "!</h3>");
+        } else {
+            out.println("<h3>Hey, what's your name?</3>");
+        }
+
+    }
+
 }
 
