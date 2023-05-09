@@ -11,5 +11,9 @@
 
         <label for="password">Password:</label>
         <input type="password" placeholder="Enter Password" id="password">
+
+        <br>
+
+        <button type="submit">Login</button>
     </form>
 </div>

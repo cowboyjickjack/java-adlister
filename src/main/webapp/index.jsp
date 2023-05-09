@@ -5,6 +5,6 @@
     <title><%= "JSP Website" %></title>
 </head>
 <body>
-
+    <jsp:include page="login.jsp"></jsp:include>
 </body>
 </html>
