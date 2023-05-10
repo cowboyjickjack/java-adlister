@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/pickcolor")ad
+@WebServlet("/pickcolor")
 public class PickColorServlet extends HttpServlet {
 
     @Override
