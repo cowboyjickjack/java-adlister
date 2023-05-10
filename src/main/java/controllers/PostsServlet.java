@@ -10,21 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/createPost")
-public class PostServlet extends HttpServlet {
+public class PostsServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req, resp);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String post = req.getParameter("post");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String body = req.getParameter("body");
         String title = req.getParameter("title");
-        String[] topics = req.getParameterValues("topic");
-        Post submittedPost = new Post(title, post, topics);
-        req.setAttribute("post", submittedPost);
+        Post post = new Post(title, body);
+        req.setAttribute("post", post);
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req, resp);
     }
-
 }
