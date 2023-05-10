@@ -4,7 +4,15 @@ public class PizzaOrder {
     private String sauce;
     private String size;
     private String[] topping;
+    private String address;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public PizzaOrder(){}
 
@@ -40,10 +48,11 @@ public class PizzaOrder {
         this.topping = topping;
     }
 
-    public PizzaOrder(String crust, String sauce, String size, String[] topping) {
+    public PizzaOrder(String crust, String sauce, String size, String[] topping, String address) {
         this.crust = crust;
         this.sauce = sauce;
         this.size = size;
         this.topping = topping;
+        this.address = address;
     }
 }

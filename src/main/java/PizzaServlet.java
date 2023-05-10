@@ -18,8 +18,9 @@ public class PizzaServlet extends HttpServlet {
         String crust = req.getParameter("crust");
         String sauce = req.getParameter("sauce");
         String size = req.getParameter("size");
+        String address = req.getParameter("address");
         String[] topping = req.getParameterValues("topping");
-        PizzaOrder UserOrder = new PizzaOrder(sauce, size, crust, topping);
+        PizzaOrder UserOrder = new PizzaOrder(sauce, size, crust, topping, address);
         req.setAttribute("order", UserOrder);
         req.getRequestDispatcher("/partials/pizza-order.jsp").forward(req, resp);
     }
