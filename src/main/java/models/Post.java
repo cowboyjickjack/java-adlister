@@ -1,25 +1,10 @@
 package models;
 
-public class Post {
+import java.io.Serializable;
 
+public class Post implements Serializable {
     private String title;
-    private String post;
-
-    private String[] topics;
-
-    public Post(String title, String post, String[] topics) {
-        this.title = title;
-        this.post = post;
-        this.topics = topics;
-    }
-
-    public String[] getTopics() {
-        return topics;
-    }
-
-    public void setTopics(String[] topics) {
-        this.topics = topics;
-    }
+    private String body;
 
     public String getTitle() {
         return title;
@@ -29,14 +14,19 @@ public class Post {
         this.title = title;
     }
 
-    public String getPost() {
-        return post;
+    public String getBody() {
+        return body;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public Post() {
+    }
+
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
     }
 }
