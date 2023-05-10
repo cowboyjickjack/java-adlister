@@ -15,7 +15,13 @@ public class PizzaServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
+        String crust = req.getParameter("crust");
+        String sauce = req.getParameter("sauce");
+        String size = req.getParameter("size");
+        String[] topping = req.getParameterValues("topping");
+        PizzaOrder UserOrder = new PizzaOrder(sauce, size, crust, topping);
+        req.setAttribute("order", UserOrder);
+        req.getRequestDispatcher("/partials/pizza-order.jsp").forward(req, resp);
     }
 
 }
