@@ -6,6 +6,7 @@
 <html>
 <head>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <title><%= "JSP Website" %></title>
 </head>
 <body>
@@ -58,5 +59,16 @@
         <h1>single letter variable names are good</h1>
     </c:if>
 >>>>>>> jsp-and-jstl-lecture
+=======
+    <jsp:include page="partials/head.jsp">
+        <jsp:param name="title" value="Welcome to my site!" />
+    </jsp:include>
+</head>
+<body>
+    <jsp:include page="partials/navbar.jsp" />
+    <div class="container">
+        <h1>Welcome to the Adlister!</h1>
+    </div>
+>>>>>>> servlets-with-jsps
 </body>
 </html>
