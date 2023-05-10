@@ -63,7 +63,7 @@
 
     <c:if test="${UserOrder != null}">
         <h2>Please review your order:</h2>
-        <h3>${crust}</h3>
+        <h3>Crust: ${UserOrder.crust}</h3>
     </c:if>
 </body>
 </html>
