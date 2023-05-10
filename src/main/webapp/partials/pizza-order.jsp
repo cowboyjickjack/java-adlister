@@ -8,7 +8,7 @@
 <body>
     <h1>Customize Your Papa Pizza</h1>
 
-    <form action="pizza-order.jsp" method="POST">
+    <form action="${pageContext.request.contextPath}pizza-order" method="POST">
 
         <label for="crust">Select Crust:</label>
         <select name="crust" id="crust">
@@ -56,14 +56,25 @@
         <br>
 
         <label for="address">Delivery Address:</label>
-        <input type="text" name="delivery-address" id="address">
+        <input type="text" name="address" id="address">
 
         <input type="submit" value="submit">
     </form>
 
-    <c:if test="${UserOrder != null}">
+    <c:if test="${order != null}">
         <h2>Please review your order:</h2>
-        <h3>Crust: ${UserOrder.crust}</h3>
+        <p>Crust: ${order.crust}</p>
+        <p>Sauce: ${order.sauce}</p>
+        <p>Size: ${order.size}</p>
+        <p>Toppings:</p>
+        <ul>
+            <c:forEach var="topping" items="${order.topping}">
+                <li>${topping}</li>
+            </c:forEach>
+        </ul>
+
+        <p>Delivery Address:</p>
+        <p>${order.address}</p>
     </c:if>
 </body>
 </html>
