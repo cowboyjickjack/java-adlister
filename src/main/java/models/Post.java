@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Post implements Serializable {
     private String title;
     private String body;
-
     private User user;
 
     public String getTitle() {
@@ -38,5 +37,11 @@ public class Post implements Serializable {
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
+    }
+
+    public Post(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
     }
 }
