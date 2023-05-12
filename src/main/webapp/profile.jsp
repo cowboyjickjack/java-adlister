@@ -9,7 +9,8 @@
     <jsp:include page="partials/navbar.jsp" />
 
     <div class="container">
-        <h1>Viewing your profile.</h1>
+        <h1>Welcome to your profile ${username}! :)</h1> <%-- grabbing session attribute from server! --%>
+        <p>Your language preference is ${language}</p>
     </div>
 
 </body>
