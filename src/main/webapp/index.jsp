@@ -67,7 +67,7 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <h1>Welcome to the Adlister, ${username}!</h1>
     </div>
 >>>>>>> servlets-with-jsps
 </body>
