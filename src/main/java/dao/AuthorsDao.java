@@ -1,6 +1,7 @@
 package dao;
 
 import com.mysql.cj.jdbc.Driver;
+import config.Config;
 import models.Author;
 
 import java.sql.*;
@@ -14,9 +15,10 @@ public class AuthorsDao implements Authors {
     public AuthorsDao(){
         try {
             DriverManager.registerDriver(new Driver());
-            connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/bigfoot_test_db?allowPublicKeyRetrieval=true&useSSL=false",
-                    "codeup_test_user",
-                    "codeup");
+            connection = DriverManager.getConnection(
+                    Config.getUrl(),
+                    Config.getUser(),
+                    Config.getPassword());
         } catch (SQLException sqlx){
             throw new RuntimeException("Error connecting to db", sqlx);
         }

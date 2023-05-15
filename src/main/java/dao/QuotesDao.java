@@ -1,7 +1,6 @@
 package dao;
 
 import com.mysql.cj.jdbc.Driver;
-import com.sun.org.apache.xpath.internal.operations.Quo;
 import models.Author;
 import models.Quote;
 
@@ -15,7 +14,7 @@ public class QuotesDao implements Quotes{
     public QuotesDao(){
         try {
             DriverManager.registerDriver(new Driver());
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigfoot_test_db?allowPublicKeyRetrieval=true&useSSL=false",
+            connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/bigfoot_test_db?allowPublicKeyRetrieval=true&useSSL=false",
                     "codeup_test_user",
                     "codeup");
         } catch (SQLException e) {
@@ -28,7 +27,7 @@ public class QuotesDao implements Quotes{
         // Get a reference to the authors Data Access Object
         // So I can retrieve the list of authors
         Authors authorsDao = new AuthorsDao();
-        // retrieve all the authors in the darabase
+        // retrieve all the authors in the database
         // Store the list in a list called Authors
         List<Author> authors = authorsDao.all();
         // Then I create a list to store the quotes

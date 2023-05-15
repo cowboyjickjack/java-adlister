@@ -1,7 +1,5 @@
 package models;
 
-import com.sun.org.apache.xpath.internal.operations.Quo;
-
 public class Quote {
 
     private long id;
