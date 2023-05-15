@@ -16,14 +16,14 @@ public class QuotesDao implements Quotes{
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/bigfoot_test_db?allowPublicKeyRetrieval=true&useSSL=false",
                     "codeup_test_user",
-                    "codeup");
+                    "12345");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public List<Quotes> all() {
+    public List<Quote> all() {
         // Get a reference to the authors Data Access Object
         // So I can retrieve the list of authors
         Authors authorsDao = new AuthorsDao();
@@ -31,14 +31,14 @@ public class QuotesDao implements Quotes{
         // Store the list in a list called Authors
         List<Author> authors = authorsDao.all();
         // Then I create a list to store the quotes
-        List<Quotes> quotes = new ArrayList<>();
+        List<Quote> quotes = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM quotes");
             // Then I start looping over all the quotes that I retrieve from the db
             while (resultSet.next()){
                 // For each quote, I get the author id first
-                int author_id = resultSet.getInt("author id");
+                int author_id = resultSet.getInt("author_id");
                 // I create an Author object that will hold the author information corresponding to the author id
                 Author quoteAuthor = null;
                 // I loop over the list of all the authors
@@ -53,6 +53,7 @@ public class QuotesDao implements Quotes{
                         resultSet.getString("content"),
                         quoteAuthor
                 );
+                quotes.add(quote);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
